@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class CameraRotation : MonoBehaviour
 {
+    public Camera cam;
+
     void Update()
     {
         if (Input.GetKey(KeyCode.F))
@@ -17,6 +19,19 @@ public class CameraRotation : MonoBehaviour
         if (Input.GetKey(KeyCode.H))
         {
             gameObject.transform.Rotate(0, 0, 1.3f);
+        }
+
+        if(Input.GetKey(KeyCode.R))
+        {
+            if(cam.fieldOfView < 80)
+            {
+                cam.fieldOfView++;
+            }
+        }
+
+        if (Input.GetKey(KeyCode.Y))
+        {
+            cam.fieldOfView--;
         }
     }
 }

@@ -10,6 +10,10 @@ public class Player : MonoBehaviour
     public int Coin;
     public TextMeshProUGUI CoinText;
 
+    public GameObject Heart1;
+    public GameObject Heart2;
+    public GameObject Heart3;
+
     public float Sensitivity
     {
         get { return sensitivity; }
