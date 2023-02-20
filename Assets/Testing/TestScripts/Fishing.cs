@@ -2,23 +2,22 @@ using UnityEngine;
 
 public class Fishing : MonoBehaviour
 {
+    [Header("int")]
     public int random;
 
+    [Header("int")]
     public float timer;
+
+    [Header("bools")]
     public bool timergo = false;
-    
+    public bool CardCollected;
     public bool canfish;
 
+    [Header("GameObjects")]
     public GameObject CardText;
-
     public GameObject[] FishingSpot;
-
     public GameObject FishingSpotToBeSpawned;
-
     public GameObject Player;
-
-    public bool CardCollected;
-
     public GameObject Card2NotCollected;
     public GameObject Card2;
 

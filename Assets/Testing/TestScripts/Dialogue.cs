@@ -4,28 +4,30 @@ using System.Collections;
 
 public class Dialogue : MonoBehaviour
 {
-    public GameObject DialogueBox;
+    [Header("Strings")]
+    public string CurrentText; //
+    public string NewText; //N
 
-    private string CurrentText;
+    [Header("GameObjects")]
+    public GameObject DialogueBox; //
+    public GameObject Option1Button; //
+    public GameObject Option2Button; //
+    public GameObject Option3Button; //
 
-    public string NewText;
+    [Header("Text Mesh Pro Objects")]
+    public TextMeshProUGUI NPCName; //
+    public TextMeshProUGUI DialogueText; //
+    public TextMeshProUGUI Option1Text; //
+    public TextMeshProUGUI Option2Text; //
+    public TextMeshProUGUI Option3Text; //
 
-    public TextMeshProUGUI NPCName;
-    public TextMeshProUGUI DialogueText;
+    [Header("ints")]
+    public int NPCCounter; //
 
-    public GameObject Option1Button;
-    public GameObject Option2Button;
-    public GameObject Option3Button;
-
-    public TextMeshProUGUI Option1Text;
-    public TextMeshProUGUI Option2Text;
-    public TextMeshProUGUI Option3Text;
-
-    public int NPCCounter;
-
+    //
     public void DialogueTrigger()
     {
-        CurrentText = NewText;
+        CurrentText = NewText; //
         StartCoroutine(DisplayText());
 
         switch (NPCCounter)
@@ -41,6 +43,7 @@ public class Dialogue : MonoBehaviour
         }
     }
 
+    //
     private IEnumerator DisplayText()
     {
         DialogueText.text = "";
@@ -52,6 +55,7 @@ public class Dialogue : MonoBehaviour
         }
     }
 
+    //
     public void Option1()
     {
         switch(NPCCounter)
@@ -67,8 +71,10 @@ public class Dialogue : MonoBehaviour
         }
     }
 
+    //
     public void Option2()
     {
+        //Based on what the NPC 
         switch (NPCCounter)
         {
             case 1:
@@ -82,6 +88,7 @@ public class Dialogue : MonoBehaviour
         }
     }
 
+    //
     public void Option3()
     {
         switch (NPCCounter)
