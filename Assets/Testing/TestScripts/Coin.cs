@@ -8,12 +8,15 @@ public class Coin : MonoBehaviour
 
     public GameObject WholeCoin;
 
+    public GameObject QuestManager;
+
     public void OnTriggerEnter(Collider other)
     {
         Debug.Log("Coin Collided With");
         if(other.tag == "Player")
         {
             Player.GetComponent<Player>().OnCoinCollection();
+            QuestManager.GetComponent<QuestManager>().Quest1Complete();
             Destroy(WholeCoin);
         }
     }

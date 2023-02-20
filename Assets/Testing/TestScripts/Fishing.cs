@@ -3,12 +3,24 @@ using UnityEngine;
 public class Fishing : MonoBehaviour
 {
     public int random;
+
     public float timer;
-    public bool timergo;
+    public bool timergo = false;
+    
     public bool canfish;
 
-    public GameObject FishText;
     public GameObject CardText;
+
+    public GameObject[] FishingSpot;
+
+    public GameObject FishingSpotToBeSpawned;
+
+    public GameObject Player;
+
+    public bool CardCollected;
+
+    public GameObject Card2NotCollected;
+    public GameObject Card2;
 
     public void Update()
     {
@@ -17,40 +29,38 @@ public class Fishing : MonoBehaviour
             timer = timer + 1 * Time.deltaTime;
         }
 
-        if (timer > 1f)
+        if (timer > Random.Range(6, 10))
         {
-            timergo = false;
-            timer = 0;
+            FishingSpotToBeSpawned = FishingSpot[Random.Range(0, 5)];
+            FishingSpotToBeSpawned.SetActive(true);
             CardText.SetActive(false);
-            FishText.SetActive(false);
-        }
-
-        if (Input.GetKey(KeyCode.F) && canfish == true && timergo == false)
-        {
-            timergo = true;
-            random = Random.Range(0, 10);
-
-            if(random == 5)
-            {
-                CardText.SetActive(true);
-            }
-            else
-            {
-                FishText.SetActive(true);
-            }
+            timer = 0;
         }
     }
 
-    public void OnCollisionEnter(Collision collision)
+    public void OnTriggerEnter(Collider other)
     {
-        if(collision.gameObject.name == "FishingPool")
-        {
-            canfish = true;
-        }
+        timergo = true;
     }
-
-    public void OnCollisionExit(Collision collision)
+    public void OnTriggerExit(Collider other)
     {
-        canfish = false;
+        timergo = false;
+        timer = 0;
+    }
+    public void Fished()
+    {
+        random = Random.Range(0, 10);
+
+        if (random == 5 || random == 10 && CardCollected == false)
+        {
+            CardText.SetActive(true);
+            CardCollected = true;
+            Card2.SetActive(true);
+            Card2NotCollected.SetActive(false);
+        }
+        else
+        {
+            Player.GetComponent<Player>().OnCoinCollection();
+        }
     }
 }

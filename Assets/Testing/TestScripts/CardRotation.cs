@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class CameraRotation : MonoBehaviour
+public class CardRotation : MonoBehaviour
 {
     public Camera cam;
 

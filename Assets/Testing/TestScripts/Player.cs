@@ -14,6 +14,8 @@ public class Player : MonoBehaviour
     public GameObject Heart2;
     public GameObject Heart3;
 
+    public int Health;
+
     public float Sensitivity
     {
         get { return sensitivity; }
@@ -21,7 +23,7 @@ public class Player : MonoBehaviour
     }
     [Range(0.1f, 9f)] [SerializeField] float sensitivity = 2f;
     [Tooltip("Limits vertical camera rotation. Prevents the flipping that happens when rotation goes above 90.")]
-    [Range(0f, 90f)] [SerializeField] float yRotationLimit = 88f;
+    [Range(0f, 90f)] [SerializeField] float yRotationLimit = 40;
 
     Vector2 rotation = Vector2.zero;
     const string xAxis = "Mouse X"; //Strings in direct code generate garbage, storing and re-using them creates no garbage
@@ -74,5 +76,24 @@ public class Player : MonoBehaviour
     {
         Coin++;
         CoinText.text = Coin.ToString();
+    }
+
+    public void HealthDecrease()
+    {
+        switch(Health)
+        {
+            case 3:
+                Heart1.SetActive(false);
+                Health--;
+                break;
+            case 2:
+                Heart2.SetActive(false);
+                Health--;
+                break;
+            case 1:
+                Heart3.SetActive(false);
+                Health--;
+                break;
+        }
     }
 }

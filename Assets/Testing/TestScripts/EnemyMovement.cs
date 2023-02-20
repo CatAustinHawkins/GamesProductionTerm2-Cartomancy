@@ -15,6 +15,10 @@ public class EnemyMovement : MonoBehaviour
 
     public GameObject[] Trap;
 
+    public float timer;
+    public bool timeractive;
+
+
     void Awake()
     {
         PlayerInSight = false;
@@ -22,6 +26,15 @@ public class EnemyMovement : MonoBehaviour
 
     void Update()
     {
+        if (timeractive)
+        {
+            timer = timer + 1 * Time.deltaTime;
+        }
+
+        if(timer > 1f)
+        {
+            timeractive = false;
+        }
 
         Trap = GameObject.FindGameObjectsWithTag("Trap");
 
@@ -81,6 +94,22 @@ public class EnemyMovement : MonoBehaviour
         if(other.tag == "Trap")
         {
             TrapInSight = false;
+        }
+    }
+
+    public void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("Collided");
+        if(collision.gameObject.tag == "Player" && timeractive == false)
+        {
+            timeractive = true;
+            player.GetComponent<Player>().HealthDecrease();
+        }
+
+        if(collision.gameObject.tag == "Trap")
+        {
+            TrapInSight = false;
+            //so the enemy stops when it touches the trap
         }
     }
 }
