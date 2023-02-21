@@ -1,5 +1,6 @@
 using UnityEngine;
 
+//On the QuestManager object
 public class QuestManager : MonoBehaviour
 {
     public GameObject QuestBox;
