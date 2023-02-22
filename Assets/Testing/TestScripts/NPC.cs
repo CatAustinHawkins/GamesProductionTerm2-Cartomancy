@@ -16,7 +16,7 @@ public class NPC : MonoBehaviour
 
     public bool PlayerInTrigger;
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (timergo)
         {

@@ -10,7 +10,7 @@ public class FishingSpot : MonoBehaviour
 
     public GameObject FishingPool;
 
-    public void Update()
+    public void FixedUpdate()
     {
         timer = timer + 1 * Time.deltaTime;
 

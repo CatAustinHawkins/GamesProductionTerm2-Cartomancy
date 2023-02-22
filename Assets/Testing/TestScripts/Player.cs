@@ -5,40 +5,44 @@ using TMPro;
 
 public class Player : MonoBehaviour
 {
+    [Header("Trap")]
     public GameObject Trap;
 
+    [Header("Coin Info")]
     public int Coin;
     public TextMeshProUGUI CoinText;
 
+    [Header("Heart and Health Info")]
     public GameObject Heart1;
     public GameObject Heart2;
     public GameObject Heart3;
-
     public int Health;
 
+    //code from https://gist.github.com/KarlRamstedt/407d50725c7b6abeaf43aee802fdd88e
     public float Sensitivity
     {
         get { return sensitivity; }
         set { sensitivity = value; }
     }
+
     [Range(0.1f, 9f)] [SerializeField] float sensitivity = 2f;
     [Tooltip("Limits vertical camera rotation. Prevents the flipping that happens when rotation goes above 90.")]
-    [Range(0f, 90f)] [SerializeField] float yRotationLimit = 40;
+    [Range(0f, 90f)] [SerializeField] float yRotationLimit = 40; //was originally 88f, changed to 40f so the player has more limited vision - looks better and smoother than the previous yRotationLimit. 
 
     Vector2 rotation = Vector2.zero;
-    const string xAxis = "Mouse X"; //Strings in direct code generate garbage, storing and re-using them creates no garbage
-    const string yAxis = "Mouse Y";
+    const string xAxis = "Mouse X"; //
+    const string yAxis = "Mouse Y";//
 
-    void Update()
+    void FixedUpdate()
     {
-        //https://gist.github.com/KarlRamstedt/407d50725c7b6abeaf43aee802fdd88e
+        //code from https://gist.github.com/KarlRamstedt/407d50725c7b6abeaf43aee802fdd88e
         rotation.x += Input.GetAxis(xAxis) * sensitivity;
         rotation.y += Input.GetAxis(yAxis) * sensitivity;
         rotation.y = Mathf.Clamp(rotation.y, -yRotationLimit, yRotationLimit);
         var xQuat = Quaternion.AngleAxis(rotation.x, Vector3.up);
         var yQuat = Quaternion.AngleAxis(rotation.y, Vector3.left);
 
-        transform.localRotation = xQuat * yQuat;
+        transform.localRotation = xQuat * yQuat; //change the rotation of the player - which is the parent of the camera. 
 
         if (Input.GetKey(KeyCode.W))
         {

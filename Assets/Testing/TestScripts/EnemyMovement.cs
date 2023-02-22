@@ -24,7 +24,7 @@ public class EnemyMovement : MonoBehaviour
         PlayerInSight = false;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if (timeractive)
         {

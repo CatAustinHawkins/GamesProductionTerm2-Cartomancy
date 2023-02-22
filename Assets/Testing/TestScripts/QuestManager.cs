@@ -12,7 +12,7 @@ public class QuestManager : MonoBehaviour
     public float timer;
     public bool timergo;
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (timergo)
         {

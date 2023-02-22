@@ -21,7 +21,7 @@ public class Fishing : MonoBehaviour
     public GameObject Card2NotCollected;
     public GameObject Card2;
 
-    public void Update()
+    public void FixedUpdate()
     {
         if (timergo)
         {
