@@ -6,13 +6,15 @@ public class EnemyMovement : MonoBehaviour
 
     public Transform MoveToPosition;
 
+    [Header("GameObjects")]
     public GameObject player;
+    public GameObject[] Trap;
+
 
     public bool TrapInSight;
     public bool PlayerInSight = false;
 
-    public GameObject[] Trap;
-
+    [Header("Timers")]
     public float timer;
     public bool timeractive;
 
