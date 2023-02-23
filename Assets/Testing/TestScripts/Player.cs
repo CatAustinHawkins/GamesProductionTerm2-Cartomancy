@@ -1,5 +1,5 @@
 using UnityEngine;
-using TMPro;
+using TMPro; //to access the TextMeshProUGUI asset
 
 //script on the player gameobject
 public class Player : MonoBehaviour
@@ -12,12 +12,12 @@ public class Player : MonoBehaviour
     public TextMeshProUGUI CoinText; //display the amount of coins the player has
 
     [Header("Heart and Health Info")]
-    public GameObject Heart1; 
-    public GameObject Heart2;
-    public GameObject Heart3;
-    public int Health;
+    public GameObject Heart1; //the players first heart UI object
+    public GameObject Heart2; //the players second heart UI object
+    public GameObject Heart3; //the players third heart UI object
+    public int Health; //the players health
 
-    //code from https://gist.github.com/KarlRamstedt/407d50725c7b6abeaf43aee802fdd88e
+    //Camera Following Player's Mouse code from https://gist.github.com/KarlRamstedt/407d50725c7b6abeaf43aee802fdd88e
     public float Sensitivity
     {
         get { return sensitivity; }
@@ -34,7 +34,7 @@ public class Player : MonoBehaviour
 
     void FixedUpdate()
     {
-        //code from https://gist.github.com/KarlRamstedt/407d50725c7b6abeaf43aee802fdd88e
+        //Camera Following Player's Mouse code from https://gist.github.com/KarlRamstedt/407d50725c7b6abeaf43aee802fdd88e
         rotation.x += Input.GetAxis(xAxis) * sensitivity;
         rotation.y += Input.GetAxis(yAxis) * sensitivity;
         rotation.y = Mathf.Clamp(rotation.y, -yRotationLimit, yRotationLimit);
@@ -43,6 +43,7 @@ public class Player : MonoBehaviour
 
         transform.localRotation = xQuat * yQuat; //change the rotation of the player - which is the parent of the camera. 
 
+        //my code
         if (Input.GetKey(KeyCode.W)) //when W pressed
         {
             gameObject.transform.Translate(0, 0, 0.05f); //move the player in the z axis by 0.05f
@@ -68,35 +69,37 @@ public class Player : MonoBehaviour
             gameObject.transform.Translate(0, 0.3f, 0); //move the player in the y axis by 0.3f
         }
 
-        if(Input.GetKey(KeyCode.T))
+        if(Input.GetKey(KeyCode.T)) //when T pressed
         {
             Instantiate(Trap, gameObject.transform.position, gameObject.transform.rotation); //place a trap, in the same position and rotation and the player
         }
     }
 
 
-    public void OnCoinCollection()
+    public void OnCoinCollection() //called by the Coin script, and Fishing script
     {
-        Coin++;
-        CoinText.text = Coin.ToString();
+        Coin++; //add to the coin integer
+        CoinText.text = Coin.ToString(); //update the coin text
     }
 
-    public void HealthDecrease()
+    public void HealthDecrease() //called by the EnemyMovement script
     {
-        switch(Health)
+        switch(Health) //get the current player health
         {
-            case 3:
-                Heart1.SetActive(false);
-                Health--;
-                break;
-            case 2:
-                Heart2.SetActive(false);
-                Health--;
-                break;
-            case 1:
-                Heart3.SetActive(false);
-                Health--;
-                break;
+            case 3: //if health = 3
+                Heart1.SetActive(false); //disable the Heart1 GameObject, so the player can see they lost health
+                Health--; //reduce health by 1
+                break; //end case 3
+
+            case 2: //if health = 2
+                Heart2.SetActive(false); //disable the Heart2 GameObject, so the player can see they lost health
+                Health--; //reduce health by 1
+                break; //end case 2
+
+            case 1: //if health = 1
+                Heart3.SetActive(false); //disable the Heart3 GameObject, so the player can see they lost health
+                Health--; //reduce health by 1
+                break; //end case 1
         }
     }
 }
