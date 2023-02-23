@@ -12,8 +12,6 @@ public class CardCollection : MonoBehaviour
     public bool timeractive; //when true, the timer begins
     public float timer; //float 
 
-
-
     public void FixedUpdate()
     {
         //start the timer

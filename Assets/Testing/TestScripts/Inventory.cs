@@ -1,12 +1,13 @@
 using UnityEngine;
 using TMPro;
 
+//on the inventory manager
 public class Inventory : MonoBehaviour
 {
+    [Header("GameObjects")]
     public GameObject CardInventoryUI;
     public GameObject ItemInventoryUI;
     public GameObject GameplayUI;
-
     public GameObject Object1;
     public GameObject Object2;
     public GameObject CameraRotateRoom;
@@ -15,66 +16,68 @@ public class Inventory : MonoBehaviour
 
     public TextMeshProUGUI Card;
 
+    [Header("Card Page Info")]
     public GameObject[] CardPage;
     public int CardCurrentPage = 0;
+    public bool cardinventoryopen = false;
 
+    [Header("Item Page Info")]
     public GameObject[] ItemPage;
     public int ItemCurrentPage = 0;
-
-    public bool cardinventoryopen = false;
     public bool iteminventoryopen = false;
 
+    [Header("Timer Info")]
     public float timer;
-    public bool timergo;
+    public bool timeractive;
 
     private void FixedUpdate()
     {
-        if(timergo)
+        if(timeractive)
         {
             timer = timer + 1 * Time.deltaTime;
         }
         
         if(timer > 0.5f)
         {
-            timergo = false;
+            timeractive = false;
             timer = 0;
         }
 
         if(Input.GetKey(KeyCode.C))
         {
-            if(cardinventoryopen && timergo == false)
+            if(cardinventoryopen && timeractive == false)
             {
                 CardInventoryUI.SetActive(false);
                 cardinventoryopen = false;
-                timergo = true;
+                timeractive = true;
             }
 
-            if(cardinventoryopen == false && timergo == false)
+            if(cardinventoryopen == false && timeractive == false)
             {
                 ItemInventoryUI.SetActive(false);
                 iteminventoryopen = false;
                 CardInventoryUI.SetActive(true);
                 cardinventoryopen = true;
-                timergo = true;
+                timeractive = true;
             }
         }
 
         if (Input.GetKey(KeyCode.I))
         {
-            if (iteminventoryopen && timergo == false)
+            if (iteminventoryopen && timeractive == false)
             {
                 ItemInventoryUI.SetActive(false);
                 iteminventoryopen = false;
-                timergo = true;
+                timeractive = true;
             }
 
-            if (iteminventoryopen == false && timergo == false)
+            if (iteminventoryopen == false && timeractive == false)
             {
                 CardInventoryUI.SetActive(false);
                 cardinventoryopen = false;
                 ItemInventoryUI.SetActive(true);
                 iteminventoryopen = true;
-                timergo = true;
+                timeractive = true;
             }
         }
     }

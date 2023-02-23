@@ -1,5 +1,6 @@
 using UnityEngine;
 
+//on each NPC character
 public class NPC : MonoBehaviour
 {
 

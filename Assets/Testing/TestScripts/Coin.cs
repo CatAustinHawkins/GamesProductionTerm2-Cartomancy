@@ -27,5 +27,4 @@ public class Coin : MonoBehaviour
             Destroy(WholeCoin);
         }
     }
-
 }

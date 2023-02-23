@@ -17,7 +17,6 @@ public class Traps : MonoBehaviour
 
     void FixedUpdate()
     {
-
         timer = timer + 1 * Time.deltaTime; //add to the timer
 
         if (timer > 5) //after more than 5 seconds

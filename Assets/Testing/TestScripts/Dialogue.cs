@@ -1,25 +1,25 @@
 using UnityEngine;
-using TMPro;
+using TMPro; //so I can access TextMeshProUGUI objects
 using System.Collections;
 
 public class Dialogue : MonoBehaviour
 {
     [Header("Strings")]
-    public string CurrentText; //
-    public string NewText; //N
+    public string CurrentText; //This string will be set to the value of NewText, and will be used in the DisplayText Coroutine
+    public string NewText; //The string that the NPCs will update to change the current dialogue
 
     [Header("GameObjects")]
-    public GameObject DialogueBox; //
-    public GameObject Option1Button; //
-    public GameObject Option2Button; //
-    public GameObject Option3Button; //
+    public GameObject DialogueBox; //The UI element that holds all the dialogue text and button items
+    public GameObject Option1Button; //The Option1 button, made visible and invisible based on whether the player requires the option
+    public GameObject Option2Button; //The Option2 button, made visible and invisible based on whether the player requires the option
+    public GameObject Option3Button; //The Option3 button, made visible and invisible based on whether the player requires the option
 
     [Header("Text Mesh Pro Objects")]
-    public TextMeshProUGUI NPCName; //
-    public TextMeshProUGUI DialogueText; //
-    public TextMeshProUGUI Option1Text; //
-    public TextMeshProUGUI Option2Text; //
-    public TextMeshProUGUI Option3Text; //
+    public TextMeshProUGUI NPCName; //The text element that displays the NPCs name
+    public TextMeshProUGUI DialogueText; //The text element that displays what the NPC is saying
+    public TextMeshProUGUI Option1Text; //the text element that displays what Option1 is
+    public TextMeshProUGUI Option2Text; //the text element that displays what Option2 is
+    public TextMeshProUGUI Option3Text; //the text element that displays what Option3 is
 
     [Header("ints")]
     public int NPCCounter; //The number coorelates to the NPC the player is currently talking to
@@ -48,12 +48,12 @@ public class Dialogue : MonoBehaviour
 
     private IEnumerator DisplayText() //triggered in DialogueTrigger
     {
-        DialogueText.text = "";
+        DialogueText.text = ""; //sets the dialogue text to nothing - so the scrolling text dialogue can begin
 
-        foreach(char c in CurrentText.ToCharArray())
+        foreach(char c in CurrentText.ToCharArray()) //for each character in the current text string
         {
-            DialogueText.text += c;
-            yield return new WaitForSecondsRealtime(0.05f);
+            DialogueText.text += c; //add the character to the dialogue text
+            yield return new WaitForSecondsRealtime(0.05f); //wait 0.05 seconds - then repeat
         }
     }
 
@@ -64,13 +64,13 @@ public class Dialogue : MonoBehaviour
         switch (NPCCounter)
         {
             case 1:
-                NewText = "Option 1 was clicked.";
-                CurrentText = NewText;
-                StartCoroutine(DisplayText());
-                Option1Button.SetActive(false);
-                Option2Button.SetActive(false);
-                Option3Button.SetActive(false);
-                break;
+                NewText = "Option 1 was clicked."; //change the value of NewText
+                CurrentText = NewText; //set the value of CurrentText to NewText
+                StartCoroutine(DisplayText()); //start the display text coroutine
+                Option1Button.SetActive(false); //hide the option1 button
+                Option2Button.SetActive(false); //hide the option2 button
+                Option3Button.SetActive(false); //hide the option3 button
+                break; //end case 1
         }
     }
 
@@ -81,13 +81,13 @@ public class Dialogue : MonoBehaviour
         switch (NPCCounter)
         {
             case 1:
-                NewText = "Option 2 was clicked.";
-                CurrentText = NewText;
-                StartCoroutine(DisplayText());
-                Option1Button.SetActive(false);
-                Option2Button.SetActive(false);
-                Option3Button.SetActive(false);
-                break;
+                NewText = "Option 2 was clicked."; //change the value of NewText
+                CurrentText = NewText; //set the value of CurrentText to NewText
+                StartCoroutine(DisplayText()); //start the display text coroutine
+                Option1Button.SetActive(false); //hide the option1 button
+                Option2Button.SetActive(false); //hide the option2 button
+                Option3Button.SetActive(false); //hide the option3 button
+                break; //end case 1
         }
     }
 
@@ -98,13 +98,13 @@ public class Dialogue : MonoBehaviour
         switch (NPCCounter)
         {
             case 1:
-                NewText = "Option 3 was clicked.";
-                CurrentText = NewText;
-                StartCoroutine(DisplayText());
-                Option1Button.SetActive(false);
-                Option2Button.SetActive(false);
-                Option3Button.SetActive(false);
-                break;
+                NewText = "Option 3 was clicked."; //change the value of NewText
+                CurrentText = NewText; //set the value of CurrentText to NewText
+                StartCoroutine(DisplayText()); //start the display text coroutine
+                Option1Button.SetActive(false); //hide the option1 button
+                Option2Button.SetActive(false); //hide the option2 button
+                Option3Button.SetActive(false); //hide the option3 button
+                break; //end case 1
         }
     }
 }

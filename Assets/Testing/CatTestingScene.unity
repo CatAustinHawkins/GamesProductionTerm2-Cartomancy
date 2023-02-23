@@ -8054,13 +8054,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c60a3029ae3dae45b79aeb5cbb92d0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DialogueBox: {fileID: 2101492041}
+  CurrentText: 
   NewText: 
-  NPCName: {fileID: 509357072}
-  DialogueText: {fileID: 429373382}
+  DialogueBox: {fileID: 2101492041}
   Option1Button: {fileID: 2097553982}
   Option2Button: {fileID: 1256826044}
   Option3Button: {fileID: 1037612662}
+  NPCName: {fileID: 509357072}
+  DialogueText: {fileID: 429373382}
   Option1Text: {fileID: 93675518}
   Option2Text: {fileID: 642271159}
   Option3Text: {fileID: 45719902}
@@ -8374,7 +8375,7 @@ Transform:
   m_GameObject: {fileID: 1422976929}
   m_LocalRotation: {x: 0.5, y: 0.5, z: 0.5, w: 0.5}
   m_LocalPosition: {x: -2.0299988, y: -1.23, z: 31.62}
-  m_LocalScale: {x: 142.4976, y: 1, z: 568.4089}
+  m_LocalScale: {x: 142.4976, y: 1, z: 268.7437}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1572853738}
@@ -11509,6 +11510,7 @@ MonoBehaviour:
   random: 0
   timer: 0
   timergo: 0
+  CardCollected: 0
   canfish: 0
   CardText: {fileID: 701557380}
   FishingSpot:
@@ -11521,7 +11523,6 @@ MonoBehaviour:
   - {fileID: 1273869871}
   FishingSpotToBeSpawned: {fileID: 0}
   Player: {fileID: 1797636683}
-  CardCollected: 0
   Card2NotCollected: {fileID: 1276609749}
   Card2: {fileID: 1872957942}
 --- !u!65 &2040795153
