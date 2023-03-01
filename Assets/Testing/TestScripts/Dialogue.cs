@@ -119,6 +119,14 @@ public class Dialogue : MonoBehaviour
                 Option1Button.SetActive(false); //hide the option1 button
                 Option2Button.SetActive(false); //hide the option2 button
                 break; //end case 1
+
+            case 4:
+                NewText = "Go to the fishing pool."; //change the value of NewText
+                CurrentText = NewText; //set the value of CurrentText to NewText
+                StartCoroutine(DisplayText()); //start the display text coroutine
+                Option1Button.SetActive(false); //hide the option1 button
+                Option2Button.SetActive(false); //hide the option2 button
+                break; //end case 1
         }
     }
 

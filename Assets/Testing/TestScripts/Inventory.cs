@@ -31,6 +31,7 @@ public class Inventory : MonoBehaviour
     public float timer;
     public bool timeractive;
 
+
     private void FixedUpdate()
     {
         //start the timer
