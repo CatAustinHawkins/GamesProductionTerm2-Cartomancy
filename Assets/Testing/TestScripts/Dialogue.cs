@@ -23,14 +23,13 @@ public class Dialogue : MonoBehaviour
 
     [Header("ints")]
     public int NPCCounter; //The number coorelates to the NPC the player is currently talking to
-    //int = 1 - the yellow NPC the player can talk to 
-
+    //int = 1 - NPC Prototype Dialogue
+    //int = 2 - First NPC - Capeless
+    //int = 3 - Second NPC - Crownless
+    //int = 4 - Third NPC - Crayfish
 
     public void DialogueTrigger() //triggered by an NPC when a player collides with them and presses E.
     {
-        CurrentText = NewText; //The NPC changes the text to be displayed in their script - through NewText. 
-        StartCoroutine(DisplayText()); //start the coroutine to display text
-
         switch (NPCCounter) //based on what NPC the player is currently talking too
         {
             case 1: //the yellow NPC
@@ -43,7 +42,40 @@ public class Dialogue : MonoBehaviour
                 Option2Text.text = "...";
                 Option3Text.text = "I see";
                 break; //end case 1
+
+            case 2:
+                NewText = "I've lost my cape :( Can you find it?";
+
+                Option1Text.text = "Ok";
+                Option1Button.SetActive(true);
+
+                Option2Text.text = "Nah";
+                Option2Button.SetActive(true);
+                break;
+
+            case 3:
+                NewText = "I've lost my crown >:( Can you find it?";
+
+                Option1Text.text = "Ok";
+                Option1Button.SetActive(true);
+
+                Option2Text.text = "Nah";
+                Option2Button.SetActive(true);
+                break;
+
+            case 4:
+                NewText = "I.... am a crayfish. Please collect my brethren...";
+
+                Option1Text.text = "Where?";
+                Option1Button.SetActive(true);
+
+                Option2Text.text = "Why";
+                Option2Button.SetActive(true);
+                break;
         }
+
+        CurrentText = NewText; //The NPC changes the text to be displayed in their script - through NewText. 
+        StartCoroutine(DisplayText()); //start the coroutine to display text
     }
 
     private IEnumerator DisplayText() //triggered in DialogueTrigger
@@ -70,6 +102,22 @@ public class Dialogue : MonoBehaviour
                 Option1Button.SetActive(false); //hide the option1 button
                 Option2Button.SetActive(false); //hide the option2 button
                 Option3Button.SetActive(false); //hide the option3 button
+                break; //end case 1
+
+            case 2:
+                NewText = "Thank you. Quest Recieved"; //change the value of NewText
+                CurrentText = NewText; //set the value of CurrentText to NewText
+                StartCoroutine(DisplayText()); //start the display text coroutine
+                Option1Button.SetActive(false); //hide the option1 button
+                Option2Button.SetActive(false); //hide the option2 button
+                break; //end case 1
+
+            case 3:
+                NewText = "Thank you. Quest Recieved"; //change the value of NewText
+                CurrentText = NewText; //set the value of CurrentText to NewText
+                StartCoroutine(DisplayText()); //start the display text coroutine
+                Option1Button.SetActive(false); //hide the option1 button
+                Option2Button.SetActive(false); //hide the option2 button
                 break; //end case 1
         }
     }

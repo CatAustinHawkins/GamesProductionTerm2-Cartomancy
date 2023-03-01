@@ -18,6 +18,9 @@ public class NPC : MonoBehaviour
     public bool dialogueopen = false; //dialogueopen bool, set to true when the DialogueBox is active and false when it is inactive
     public bool PlayerInTrigger; //when the player is in the NPCs trigger, set to true
 
+    public int NPCNumber;
+    public string NPCName;
+
     private void FixedUpdate()
     {
         //start the timer
@@ -39,12 +42,12 @@ public class NPC : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.E) && dialogueopen == false && timeractive == false) //if the player is pressing E, the DialogueBox is closed and the timer is not running
             {
-                DialogueBox.SetActive(true); //open the dialogue box
-                DialogueScript.NewText = "This is a test."; //change the value of NewText on the Dialogue script
+                DialogueScript.NPCCounter = NPCNumber; //set the NPCCounter to 1 - as this is the first NPC
+                DialogueScript.NPCName.text = NPCName;
                 Dialogue.GetComponent<Dialogue>().DialogueTrigger(); //call to the DialogueTrigger function on the dialogue script
-                DialogueScript.NPCCounter = 1; //set the NPCCounter to 1 - as this is the first NPC
                 dialogueopen = true; //set dialogueopen to true
                 timeractive = true; //set timeractive to true
+                DialogueBox.SetActive(true); //open the dialogue box
             }
 
             if (Input.GetKey(KeyCode.E) && dialogueopen && timeractive == false) //if the player is pressing E, the DialogueBox is open and the timer is not running
