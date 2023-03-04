@@ -19,8 +19,7 @@ public class Fishing : MonoBehaviour
     public GameObject[] FishingSpot; //The array of fishing spots in the scene
     public GameObject FishingSpotToBeSpawned; //which spot to enable
     public GameObject Player; //the players GameObject
-    public GameObject Card2NotCollected; //
-    public GameObject Card2;
+    public GameObject CardFragment1;
 
     public void FixedUpdate()
     {
@@ -59,8 +58,7 @@ public class Fishing : MonoBehaviour
         {
             CardText.SetActive(true); //enable the text to tell the player they got a card
             CardCollected = true; //set CardCollected to true
-            Card2.SetActive(true); //enable the card in the inventory
-            Card2NotCollected.SetActive(false); //disables the ? card in the inventory
+            CardFragment1.SetActive(true); //enable the card in the inventory
         }
         else //if random is not 5 or 10, or the card has been collected
         {

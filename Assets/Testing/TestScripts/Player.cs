@@ -17,6 +17,10 @@ public class Player : MonoBehaviour
     public GameObject Heart3; //the players third heart UI object
     public int Health; //the players health
 
+    public int Fire;
+
+    public GameObject FireCard;
+
     //Camera Following Player's Mouse code from https://gist.github.com/KarlRamstedt/407d50725c7b6abeaf43aee802fdd88e
     public float Sensitivity
     {
@@ -100,6 +104,16 @@ public class Player : MonoBehaviour
                 Heart3.SetActive(false); //disable the Heart3 GameObject, so the player can see they lost health
                 Health--; //reduce health by 1
                 break; //end case 1
+        }
+    }
+
+    public void FirePutOut()
+    {
+        Fire++;
+
+        if(Fire == 22)
+        {
+            FireCard.SetActive(true);
         }
     }
 }
