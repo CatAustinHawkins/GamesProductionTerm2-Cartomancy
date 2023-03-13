@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2069,7 +2069,7 @@ Transform:
   - {fileID: 1711953011}
   - {fileID: 981254896}
   m_Father: {fileID: 0}
-  m_RootOrder: 29
+  m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &246341668
 GameObject:
@@ -3967,7 +3967,7 @@ GameObject:
   - component: {fileID: 431621687}
   - component: {fileID: 431621686}
   m_Layer: 0
-  m_Name: Floor (3)
+  m_Name: FogMaze
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4031,12 +4031,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 431621684}
   m_LocalRotation: {x: -0, y: -0, z: -0.0062978566, w: 0.9999802}
-  m_LocalPosition: {x: 21.15, y: 0.49, z: -20.39}
-  m_LocalScale: {x: 17.468475, y: 1.5548807, z: 12.249886}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 17.468473, y: 1.5548806, z: 12.249886}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 23
+  m_Father: {fileID: 493359704}
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -0.722}
 --- !u!1 &433777102
 GameObject:
@@ -4814,6 +4814,43 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 487711796}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &493359703
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 493359704}
+  m_Layer: 0
+  m_Name: FogMaze
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &493359704
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 493359703}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 21.15, y: 0.49, z: -20.39}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1082810229}
+  - {fileID: 1959025226}
+  - {fileID: 431621688}
+  - {fileID: 1955960708}
+  - {fileID: 1661949788}
+  - {fileID: 1107902345}
+  m_Father: {fileID: 0}
+  m_RootOrder: 21
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &506759572
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6176,7 +6213,7 @@ RectTransform:
   - {fileID: 1735197408}
   - {fileID: 1495367352}
   m_Father: {fileID: 0}
-  m_RootOrder: 24
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -6615,7 +6652,7 @@ Transform:
   - {fileID: 538550065}
   - {fileID: 1555162781}
   m_Father: {fileID: 0}
-  m_RootOrder: 25
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &747456647
 BoxCollider:
@@ -9328,7 +9365,7 @@ GameObject:
   - component: {fileID: 1082810227}
   - component: {fileID: 1082810226}
   m_Layer: 0
-  m_Name: Floor (1)
+  m_Name: FogMaze
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9404,13 +9441,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1082810225}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 21, y: 0.2, z: -11.77}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.14999962, y: -0.29000002, z: 8.619999}
   m_LocalScale: {x: 17.468475, y: 5.5474, z: 1.4034997}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 21
+  m_Father: {fileID: 493359704}
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1089608670
 GameObject:
@@ -9689,7 +9726,7 @@ GameObject:
   - component: {fileID: 1107902343}
   - component: {fileID: 1107902342}
   m_Layer: 0
-  m_Name: Floor (6)
+  m_Name: FogMaze
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9765,13 +9802,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1107902341}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 24.95, y: 0.2, z: -28.74}
-  m_LocalScale: {x: 17.468475, y: 5.5474, z: 1.4034997}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 3.8000011, y: -0.29000002, z: -8.35}
+  m_LocalScale: {x: 17.468475, y: 5.5474, z: 1.4034996}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 28
+  m_Father: {fileID: 493359704}
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1 &1110834986
 GameObject:
@@ -14603,7 +14640,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1560815151
 RectTransform:
   m_ObjectHideFlags: 0
@@ -15774,7 +15811,7 @@ GameObject:
   - component: {fileID: 1661949786}
   - component: {fileID: 1661949785}
   m_Layer: 0
-  m_Name: Floor (5)
+  m_Name: FogMaze
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15850,13 +15887,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1661949784}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 21.4, y: 0.2, z: -19.33}
-  m_LocalScale: {x: 9.040111, y: 5.5474, z: 1.4034997}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0.25, y: -0.29000002, z: 1.0599995}
+  m_LocalScale: {x: 9.040111, y: 5.5474, z: 1.4034996}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 27
+  m_Father: {fileID: 493359704}
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1 &1677088787
 GameObject:
@@ -16087,7 +16124,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 31
+  m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1698278920
 MonoBehaviour:
@@ -17598,7 +17635,7 @@ Transform:
   - {fileID: 1661384112}
   - {fileID: 1199867861}
   m_Father: {fileID: 0}
-  m_RootOrder: 30
+  m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1916688747
 GameObject:
@@ -17882,7 +17919,7 @@ GameObject:
   - component: {fileID: 1955960706}
   - component: {fileID: 1955960705}
   m_Layer: 0
-  m_Name: Floor (4)
+  m_Name: FogMaze
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17958,13 +17995,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1955960704}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 27, y: 0.2, z: -18.08}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 5.8500004, y: -0.29000002, z: 2.3099995}
   m_LocalScale: {x: 17.468475, y: 5.5474, z: 1.4034997}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 26
+  m_Father: {fileID: 493359704}
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1959025222
 GameObject:
@@ -17979,7 +18016,7 @@ GameObject:
   - component: {fileID: 1959025224}
   - component: {fileID: 1959025223}
   m_Layer: 0
-  m_Name: Floor (2)
+  m_Name: FogMaze
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18055,13 +18092,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1959025222}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 14.2, y: 0.2, z: -23.61}
-  m_LocalScale: {x: 17.468475, y: 5.5474, z: 1.4034997}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -6.95, y: -0.29000002, z: -3.2200012}
+  m_LocalScale: {x: 17.468475, y: 5.5474, z: 1.4034996}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 22
+  m_Father: {fileID: 493359704}
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1 &1978652239
 GameObject:
@@ -18654,8 +18691,7 @@ MonoBehaviour:
   - {fileID: 1273869871}
   FishingSpotToBeSpawned: {fileID: 0}
   Player: {fileID: 1797636683}
-  Card2NotCollected: {fileID: 1276609749}
-  Card2: {fileID: 1872957942}
+  CardFragment1: {fileID: 0}
 --- !u!65 &2040795153
 BoxCollider:
   m_ObjectHideFlags: 0

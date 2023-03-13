@@ -1,4 +1,5 @@
 using UnityEngine;
+using TMPro;
 
 //On the QuestManager object
 public class QuestManager : MonoBehaviour
@@ -13,6 +14,11 @@ public class QuestManager : MonoBehaviour
     [Header("Timers")]
     public bool timeractive; //when true, the timer begins
     public float timer; //float 
+
+    [Header("TextMeshProUGUI")]
+    public TextMeshProUGUI Quest1Text;
+    public TextMeshProUGUI Quest2Text;
+    public TextMeshProUGUI Quest3Text;
 
     private void FixedUpdate()
     {
@@ -52,6 +58,16 @@ public class QuestManager : MonoBehaviour
     public void Quest1Complete() //called by the Coin script 
     {
         Quest1.SetActive(false); //disable the Quest1 GameObject, so the player knows they completed a quest
+    }
+
+    public void CapeQuestUpdate()
+    {
+
+    }
+
+    public void CrownQuestUpdate()
+    {
+
     }
 
 }

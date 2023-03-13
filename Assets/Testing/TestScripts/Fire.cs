@@ -27,6 +27,4 @@ public class Fire : MonoBehaviour
     {
         PlayerOverlapping = false;
     }
-
-
 }

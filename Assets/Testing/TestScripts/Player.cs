@@ -21,6 +21,8 @@ public class Player : MonoBehaviour
 
     public GameObject FireCard;
 
+
+
     //Camera Following Player's Mouse code from https://gist.github.com/KarlRamstedt/407d50725c7b6abeaf43aee802fdd88e
     public float Sensitivity
     {
@@ -115,5 +117,14 @@ public class Player : MonoBehaviour
         {
             FireCard.SetActive(true);
         }
+    }
+    public void CrownCollected()
+    {
+
+    }
+
+    public void CapeCollected()
+    {
+
     }
 }

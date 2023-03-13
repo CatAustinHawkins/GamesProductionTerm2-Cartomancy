@@ -2,15 +2,15 @@ using UnityEngine;
 
 public class Cape : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public GameObject Quest;
 
-    // Update is called once per frame
-    void Update()
+    //when the player overlaps with the cape, pick it up and put it in the inventory. 
+    //update quest info
+    //when the player talks to the npc again, complete quest
+    //enable card fragment for the player to pick up
+    public void OnTriggerEnter(Collider other)
     {
-        
+        Quest.GetComponent<QuestManager>().CapeQuestUpdate();
+        Destroy(gameObject);
     }
 }
