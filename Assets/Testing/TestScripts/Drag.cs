@@ -1,7 +1,8 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.UI;
 
+//script used for the 'put the card fragments together' mechanic
+//script from https://www.youtube.com/watch?v=sXTAzcxNqv0&ab_channel=SunnyValleyStudio 
 public class Drag : MonoBehaviour
 {
     public Canvas canvas;
@@ -31,9 +32,8 @@ public class Drag : MonoBehaviour
     { 
         if(other.name == Position)
         {
-            //transform.position = canvas.transform.TransformPoint(GoalPosition);
-
             AbleToDrag = false;
+
         }
     }
 }

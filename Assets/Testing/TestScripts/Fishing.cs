@@ -15,12 +15,12 @@ public class Fishing : MonoBehaviour
     public bool canfish; //bool for if the player can fish or not
 
     [Header("GameObjects")]
-    public GameObject CardText; //GameObject to display that the card has been collected
     public GameObject[] FishingSpot; //The array of fishing spots in the scene
     public GameObject FishingSpotToBeSpawned; //which spot to enable
     public GameObject Player; //the players GameObject
-    public GameObject CardFragment1;
+    public GameObject CardFragment1; //the first card fragment, which the player gets randomly via fishing
 
+    public GameObject Quest; //to get the questmanager script
     public void FixedUpdate()
     {
         //start the timer
@@ -34,7 +34,6 @@ public class Fishing : MonoBehaviour
         {
             FishingSpotToBeSpawned = FishingSpot[Random.Range(0, 5)]; //spawn a random fishing spot
             FishingSpotToBeSpawned.SetActive(true); //set the spot active
-            CardText.SetActive(false); //disable the cardtext
             timer = 0; //reset the timer
         }
     }
@@ -54,15 +53,16 @@ public class Fishing : MonoBehaviour
     {
         random = Random.Range(0, 10); //set random to random value between 0 and 10
 
-        if (random == 5 || random == 10 && CardCollected == false) //if the random value is 5 or 10, and the card hasnt been collected
+        //odds of getting a card increased for the demo gameplay
+        if (random == 5 || random == 4 || random == 3|| random == 1|| random == 10 && CardCollected == false) //if the random value is 5, 4, 3, 1 or 10, and the card hasnt been collected
         {
-            CardText.SetActive(true); //enable the text to tell the player they got a card
             CardCollected = true; //set CardCollected to true
             CardFragment1.SetActive(true); //enable the card in the inventory
+            Player.GetComponent<Player>().CardFragmentCollected(); //trigger the players CardFragmentCollected function
         }
-        else //if random is not 5 or 10, or the card has been collected
+        else //if random is not 5, 4, 3, 1 or 10, or the card has been collected
         {
-            Player.GetComponent<Player>().OnCoinCollection(); //call to the player to increase their coin count
+            Quest.GetComponent<QuestManager>().CrayfishQuestUpdate(); //trigger the questmanagers CrayfishQuestUpdate function
         }
     }
 }

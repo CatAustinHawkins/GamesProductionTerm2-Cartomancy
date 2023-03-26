@@ -1,16 +1,14 @@
 using UnityEngine;
 
+//script on the red cape that the player has to collect for a quest
+
 public class Cape : MonoBehaviour
 {
-    public GameObject Quest;
+    public GameObject Quest; //to be able to get the questmanager scripts function
 
-    //when the player overlaps with the cape, pick it up and put it in the inventory. 
-    //update quest info
-    //when the player talks to the npc again, complete quest
-    //enable card fragment for the player to pick up
-    public void OnTriggerEnter(Collider other)
+    public void OnTriggerEnter(Collider other) //when something collides with the object
     {
-        Quest.GetComponent<QuestManager>().CapeQuestUpdate();
-        Destroy(gameObject);
+        Quest.GetComponent<QuestManager>().CapeQuestUpdate(); //trigger the CapeQuestUpdate function on the questmanager, which updates the text shown on the quest menu
+        Destroy(gameObject); //removes the cape object from the scene, as it has been collected.
     }
 }

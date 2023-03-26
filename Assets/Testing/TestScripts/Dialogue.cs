@@ -23,59 +23,106 @@ public class Dialogue : MonoBehaviour
 
     [Header("ints")]
     public int NPCCounter; //The number coorelates to the NPC the player is currently talking to
-    //int = 1 - NPC Prototype Dialogue
-    //int = 2 - First NPC - Capeless
-    //int = 3 - Second NPC - Crownless
-    //int = 4 - Third NPC - Crayfish
+    //int = 1 - First NPC - Capeless
+    //int = 2 - Second NPC - Crownless
+    //int = 3 - Third NPC - Crayfish
+
+    [Header("The Quest Manager")]
+    public QuestManager QuestScript; //To access the variables in the questmanager script 
+    public GameObject QuestManager; //To access the functions in the questmanager script
+
+    public GameObject Card7; //the seventh card fragment image in the card inventory
+    public GameObject Card8; //the eighth card fragment image in the card inventory
+
+    public GameObject Player; //the player, to access their functions
+
+    public GameObject Crown; //the crown gameobject, which gets enabled when the player completes the crayfishes quest
 
     public void DialogueTrigger() //triggered by an NPC when a player collides with them and presses E.
     {
-        switch (NPCCounter) //based on what NPC the player is currently talking too
+        if(NPCCounter == 1) //capeless NPC 1
         {
-            case 1: //the yellow NPC
-                //enable all the option buttons
-                Option1Button.SetActive(true);
-                Option2Button.SetActive(true);
-                Option3Button.SetActive(true);
-                //change the text of each of the buttons
-                Option1Text.text = "Ok";
-                Option2Text.text = "...";
-                Option3Text.text = "I see";
-                break; //end case 1
+            NPC1DialogueTrigger(); //call the npc1dialoguetrigger function - I seperated the NPC dialogues into their own functions to make things cleaner and more organised
+        }
 
-            case 2:
-                NewText = "I've lost my cape :( Can you find it?";
+        if(NPCCounter == 2) //crownless NPC 2
+        {
+            NPC2DialogueTrigger();
+        }
 
-                Option1Text.text = "Ok";
-                Option1Button.SetActive(true);
-
-                Option2Text.text = "Nah";
-                Option2Button.SetActive(true);
-                break;
-
-            case 3:
-                NewText = "I've lost my crown >:( Can you find it?";
-
-                Option1Text.text = "Ok";
-                Option1Button.SetActive(true);
-
-                Option2Text.text = "Nah";
-                Option2Button.SetActive(true);
-                break;
-
-            case 4:
-                NewText = "I.... am a crayfish. Please collect my brethren...";
-
-                Option1Text.text = "Where?";
-                Option1Button.SetActive(true);
-
-                Option2Text.text = "Why";
-                Option2Button.SetActive(true);
-                break;
+        if (NPCCounter == 3) //crayfish NPC 3
+        {
+            CrayfishNPCTrigger();
         }
 
         CurrentText = NewText; //The NPC changes the text to be displayed in their script - through NewText. 
         StartCoroutine(DisplayText()); //start the coroutine to display text
+    }
+
+    //NPC 1 - Missing Cape NPC 
+    public void NPC1DialogueTrigger()
+    {
+        NPCName.text = "Capeless - NPC 1"; //set the npc name text object to display the name of the NPC
+
+        if (QuestScript.CapeQuestBegan == false) //check if the CapeQuestBegan boolean on the QuestScript is true or false - i.e., if the player had recieved the quest or not yet
+        {
+            NewText = "Can you collect my cape please?"; //if false, ask the player if they can collect the cape
+            //would then show the quest on the quest menu
+        }
+
+        if(QuestScript.CapeCollected) //if the player has collected the NPC's cape
+        {
+            NewText = "Thank you for collecting my cape!"; //change the text accordingly
+            Card7.SetActive(true); //enable the card fragment to be visible in the card inventory
+            Player.GetComponent<Player>().CardFragmentCollected(); //call the CardFragmentCollected function on the player
+            QuestScript.CapeCollected = false; //change the CapeCollected variable to false - this is a temporary measure, to stop the NPC from repeating the dialogue again
+            QuestManager.GetComponent<QuestManager>().CapeQuestComplete(); //call to the QuestManager, and trigger the CapeQuestComplete function
+        }
+    }
+
+    //NPC 2 - Missing Crown NPC
+    public void NPC2DialogueTrigger()
+    {
+        NPCName.text = "Crownless - NPC 2"; //set the npc name text object to display the name of the NPC
+
+        if (QuestScript.CrownQuestBegan == false)//check if the CrownQuestBegan boolean on the QuestScript is true or false - i.e., if the player had recieved the quest or not yet
+        {
+            NewText = "Can you collect my crown please?";//if false, ask the player if they can collect the crown
+        }
+
+        if (QuestScript.CrownCollected) //check if the crowncollected bool on the questmanager script is set to true, meaning the player has collected the crown
+        {
+            NewText = "Thank you for collecting my crown!"; //thank the player
+            Card8.SetActive(true); //enable the card fragment image on the card inventory 
+            Player.GetComponent<Player>().CardFragmentCollected(); //call the CardFragmentCollected function on the player
+            QuestScript.CrownCollected = false; //change the CrownCollected variable to false - this is a temporary measure, to stop the NPC from repeating the dialogue again
+            QuestManager.GetComponent<QuestManager>().CrownQuestComplete(); //call to the QuestManager, and trigger the CrownQuestComplete function
+
+        }
+    }
+
+    //NPC 3 - Crayfish NPC
+    public void CrayfishNPCTrigger()
+    {
+        NPCName.text = "Crayfish NPC"; //set the npc name text object to display the name of the NPC
+
+        if (QuestScript.FishingQuestBegan)//check if the FishingQuestBegan boolean on the QuestScript is true or false - i.e., if the player had recieved the quest or not yet
+        {
+            NewText = "Can you please collect 10 crayfish?"; //ask the player to collect 10 crayfish
+        }
+
+        if(QuestScript.FishingQuestInProgress)//if the quest is in progress
+        {
+            NewText = "nice work"; 
+        }
+
+        if(QuestScript.TenFishCollected) //if ten fish are collected i.e, if the quest is completed
+        {
+            NewText = "Thank you. You may have my crown, as a reward."; //thank the player for collecting the fish
+            Crown.SetActive(true); //enable the crown, for the player to collect for the quest
+            QuestManager.GetComponent<QuestManager>().CrayfishQuestComplete(); //call to the questmanager, triggering the crayfishquestcomplete function
+        }
+
     }
 
     private IEnumerator DisplayText() //triggered in DialogueTrigger
@@ -89,10 +136,13 @@ public class Dialogue : MonoBehaviour
         }
     }
 
+
+
+    //UNUSED IN MILESTONE 2 DEMO
+
     //When the player presses the first option button
     public void Option1()
     {
-        //Based on what NPC the player is currently talking to  
         switch (NPCCounter)
         {
             case 1:
@@ -163,4 +213,7 @@ public class Dialogue : MonoBehaviour
                 break; //end case 1
         }
     }
+
+
+
 }

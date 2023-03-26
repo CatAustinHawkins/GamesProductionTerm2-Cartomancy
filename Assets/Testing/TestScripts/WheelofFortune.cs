@@ -1,9 +1,10 @@
 using System.Collections;
 using UnityEngine;
 
+//work in progress script for the wheel of fortune
+
 public class WheelofFortune : MonoBehaviour
 {
-
     public int RandomWheelValue;
 
     public void WheelSpin()

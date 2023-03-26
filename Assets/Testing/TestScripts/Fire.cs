@@ -1,30 +1,15 @@
 using UnityEngine;
 
+//script on each fire the player has to put out
+
 public class Fire : MonoBehaviour
 {
-    public bool PlayerOverlapping;
-    public GameObject Player;
-
-    public void Update()
-    {
-        if(PlayerOverlapping)
-        {
-            if(Input.GetKey(KeyCode.F))
-            {
-                Player.GetComponent<Player>().FirePutOut();
-                Destroy(gameObject);
-            }
-        }
-    }
-
+    public GameObject Player; //get the player gameobject, to access its functions
 
     private void OnTriggerEnter(Collider other)
     {
-        PlayerOverlapping = true;
+        Player.GetComponent<Player>().FirePutOut(); //trigger the FirePutOut function on the player
+        Destroy(gameObject); //destory the fire gameobject
     }
 
-    private void OnTriggerExit(Collider other)
-    {
-        PlayerOverlapping = false;
-    }
 }
