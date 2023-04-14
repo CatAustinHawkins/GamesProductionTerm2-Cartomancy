@@ -6,21 +6,21 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Testing/MainMenu.unity
+    path: Assets/Scenes/MainMenu.unity
     guid: fe1fd748bb97ee34e9dc0c44af09dee5
   - enabled: 1
-    path: Assets/Testing/TutorialScreen.unity
+    path: Assets/Scenes/TutorialScreen.unity
     guid: 652edd05931a1034bb2fbe56716d3c27
   - enabled: 1
-    path: Assets/Testing/CatTestingScene1.unity
+    path: Assets/Testing/TestingScenes/CatTestingScene1.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
-    path: Assets/Testing/CatTestingScene2.unity
+    path: Assets/Scenes/CatTestingScene2.unity
     guid: a50b758ef31c9674e86b0c6f52e40539
   - enabled: 1
-    path: Assets/Testing/DeathScreen.unity
+    path: Assets/Scenes/DeathScreen.unity
     guid: 89f51ad4cc675c94997cd31f9a4a7f05
   - enabled: 1
-    path: Assets/Testing/WinScreen.unity
+    path: Assets/Scenes/WinScreen.unity
     guid: 331bddcc3737f4a43b1e10fe4db90927
   m_configObjects: {}
