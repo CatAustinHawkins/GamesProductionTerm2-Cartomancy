@@ -37,7 +37,6 @@ public class TEMPORARYWheelofFortune : MonoBehaviour
             player.GetComponent<Player>().CardFragmentCollected(); //call to the player and the CardFragmentCollected function
             cardfragment5.SetActive(true); //enable the fifth card fragment image in the inventory
             wheeloffortunetext.SetActive(true); //set the wheel of fortune text to true
-            timeractive = true; //start the timer
         }
 
     }

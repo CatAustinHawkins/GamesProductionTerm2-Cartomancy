@@ -21,6 +21,14 @@ public class MenuCode : MonoBehaviour
     {
         SceneManager.LoadScene("TutorialScreen");
     }
+    public void AboutMenu()
+    {
+        SceneManager.LoadScene("AboutMenu");
+    }
+    public void OptionsMenu()
+    {
+        SceneManager.LoadScene("OptionsMenu");
+    }
 
     public void StartGame()
     {

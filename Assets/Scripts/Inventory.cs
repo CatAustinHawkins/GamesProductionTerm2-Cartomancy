@@ -15,9 +15,9 @@ public class Inventory : MonoBehaviour
     public GameObject BacktoPlaying; //The BacktoPlaying button
     
     [Header("TextMeshProUGUI")]
-    public TextMeshProUGUI Card; //the text that displays which card is currently 
+    public TextMeshProUGUI CardText; //the text that displays which card is currently 
     public TextMeshProUGUI CrayfishCountText;
-    public TextMeshProUGUI WaterCount;
+    public TextMeshProUGUI WaterCountText;
 
     [Header("Card Page Info")]
     public GameObject[] CardPage; //Array for all the CardPages
@@ -35,7 +35,7 @@ public class Inventory : MonoBehaviour
 
     [Header("Item Counts")]
     public int CrayfishCount;
-    public int WaterCount;k 
+    public int WaterCount;
 
 
 
@@ -103,7 +103,7 @@ public class Inventory : MonoBehaviour
         Player.SetActive(false); //disable the player - also disabling the main camera
         BacktoPlaying.SetActive(true); //enable the Back To Game button, so the player can leave the item inspection
         GameplayUI.SetActive(false); //disable the gameplay UI
-        Card.text = "The Cube Card"; //tell the player they are inspecting the cube card
+        CardText.text = "The Cube Card"; //tell the player they are inspecting the cube card
     }
 
     public void Card2Clicked() //when the Card2 button is Clicked 
@@ -113,7 +113,7 @@ public class Inventory : MonoBehaviour
         Player.SetActive(false); //disable the player - also disabling the main camera
         BacktoPlaying.SetActive(true); //enable the Back To Game button, so the player can leave the item inspection
         GameplayUI.SetActive(false); //disable the gameplay UI
-        Card.text = "The Fish Card"; //tell the player they are inspecting the fish card
+        CardText.text = "The Fish Card"; //tell the player they are inspecting the fish card
 
     }
 

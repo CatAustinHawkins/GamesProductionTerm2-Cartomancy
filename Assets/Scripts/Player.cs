@@ -59,6 +59,26 @@ public class Player : MonoBehaviour
     const string xAxis = "Mouse X"; 
     const string yAxis = "Mouse Y";
 
+    public float speed = 10f; //Controls velocity multiplier
+
+    Rigidbody rb; //Tells script there is a rigidbody, we can use variable rb to reference it in further script
+
+    public Vector3 jump;
+    public float jumpForce = 2.0f;
+
+    public bool isGrounded;
+
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody>(); //rb equals the rigidbody on the player
+        jump = new Vector3(0.0f, 2.0f, 0.0f);
+    }
+
+    void OnCollisionStay()
+    {
+        isGrounded = true;
+    }
+
     void FixedUpdate()
     {
         //Camera Following Player's Mouse code from https://gist.github.com/KarlRamstedt/407d50725c7b6abeaf43aee802fdd88e
@@ -70,7 +90,15 @@ public class Player : MonoBehaviour
 
         transform.localRotation = xQuat * yQuat; //change the rotation of the player - which is the parent of the camera. 
 
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        {
+
+            rb.AddForce(jump * jumpForce, ForceMode.Impulse);
+            isGrounded = false;
+        }
+
         //my code
+        
         if (Input.GetKey(KeyCode.W)) //when W pressed
         {
             gameObject.transform.Translate(0, 0, 0.1f); //move the player in the z axis by 0.05f
@@ -91,12 +119,7 @@ public class Player : MonoBehaviour
             gameObject.transform.Translate(0.1f, 0, 0); //move the player in the x axis by 0.05f
         }
 
-        if(Input.GetKey(KeyCode.Space)) //when Space pressed
-        {
-            gameObject.transform.Translate(0, 0.3f, 0); //move the player in the y axis by 0.3f
-        }
-
-        if(Input.GetKey(KeyCode.T)) //when T pressed
+        if (Input.GetKey(KeyCode.T)) //when T pressed
         {
             Instantiate(Trap, gameObject.transform.position, gameObject.transform.rotation); //place a trap, in the same position and rotation and the player
         }

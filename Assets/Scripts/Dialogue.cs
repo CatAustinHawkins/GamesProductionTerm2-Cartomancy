@@ -11,21 +11,22 @@ public class Dialogue : MonoBehaviour
     [Header("GameObjects")]
     public GameObject DialogueBox; //The UI element that holds all the dialogue text and button items
     public GameObject Option1Button; //The Option1 button, made visible and invisible based on whether the player requires the option
-    public GameObject Option2Button; //The Option2 button, made visible and invisible based on whether the player requires the option
-    public GameObject Option3Button; //The Option3 button, made visible and invisible based on whether the player requires the option
 
     [Header("Text Mesh Pro Objects")]
     public TextMeshProUGUI NPCName; //The text element that displays the NPCs name
     public TextMeshProUGUI DialogueText; //The text element that displays what the NPC is saying
-    public TextMeshProUGUI Option1Text; //the text element that displays what Option1 is
-    public TextMeshProUGUI Option2Text; //the text element that displays what Option2 is
-    public TextMeshProUGUI Option3Text; //the text element that displays what Option3 is
 
     [Header("ints")]
     public int NPCCounter; //The number coorelates to the NPC the player is currently talking to
     //int = 1 - First NPC - Capeless
     //int = 2 - Second NPC - Crownless
     //int = 3 - Third NPC - Crayfish
+
+    //int = 4 - Intro NPC Tutorial
+    //int = 5 - Forest NPC
+    //int 6 - Wheel of Fortune NPC
+    //int 7 - Fog Maze Player Dialogue
+    //int 8
 
     [Header("The Quest Manager")]
     public QuestManager QuestScript; //To access the variables in the questmanager script 
@@ -55,6 +56,15 @@ public class Dialogue : MonoBehaviour
             CrayfishNPCTrigger();
         }
 
+        if(NPCCounter == 4)
+        {
+            TutorialNPCTrigger();
+        }
+
+        if(NPCCounter == 5)
+        {
+
+        }
         CurrentText = NewText; //The NPC changes the text to be displayed in their script - through NewText. 
         StartCoroutine(DisplayText()); //start the coroutine to display text
     }
@@ -125,6 +135,29 @@ public class Dialogue : MonoBehaviour
 
     }
 
+    public void TutorialNPCTrigger()
+    {
+        NPCName.text = "Player"; //set the npc name text object to display the name of the NPC
+        NewText = "Where... am I? What is this place?";
+
+    }
+
+    public void ForestNPCTrigger()
+    {
+        NPCName.text = "Forest NPC - Name Undecided"; //set the npc name text object to display the name of the NPC
+
+    }
+
+    public void WheelofFortuneNPCTrigger()
+    {
+
+    }
+
+    public void FogMazePlayerDialogue()
+    {
+        NPCName.text = "Player";
+    }
+
     private IEnumerator DisplayText() //triggered in DialogueTrigger
     {
         DialogueText.text = ""; //sets the dialogue text to nothing - so the scrolling text dialogue can begin
@@ -136,11 +169,7 @@ public class Dialogue : MonoBehaviour
         }
     }
 
-
-
-    //UNUSED IN MILESTONE 2 DEMO
-
-    //When the player presses the first option button
+    //When the player presses the first option button - the Next button
     public void Option1()
     {
         switch (NPCCounter)
@@ -150,8 +179,6 @@ public class Dialogue : MonoBehaviour
                 CurrentText = NewText; //set the value of CurrentText to NewText
                 StartCoroutine(DisplayText()); //start the display text coroutine
                 Option1Button.SetActive(false); //hide the option1 button
-                Option2Button.SetActive(false); //hide the option2 button
-                Option3Button.SetActive(false); //hide the option3 button
                 break; //end case 1
 
             case 2:
@@ -159,7 +186,6 @@ public class Dialogue : MonoBehaviour
                 CurrentText = NewText; //set the value of CurrentText to NewText
                 StartCoroutine(DisplayText()); //start the display text coroutine
                 Option1Button.SetActive(false); //hide the option1 button
-                Option2Button.SetActive(false); //hide the option2 button
                 break; //end case 1
 
             case 3:
@@ -167,7 +193,6 @@ public class Dialogue : MonoBehaviour
                 CurrentText = NewText; //set the value of CurrentText to NewText
                 StartCoroutine(DisplayText()); //start the display text coroutine
                 Option1Button.SetActive(false); //hide the option1 button
-                Option2Button.SetActive(false); //hide the option2 button
                 break; //end case 1
 
             case 4:
@@ -175,45 +200,9 @@ public class Dialogue : MonoBehaviour
                 CurrentText = NewText; //set the value of CurrentText to NewText
                 StartCoroutine(DisplayText()); //start the display text coroutine
                 Option1Button.SetActive(false); //hide the option1 button
-                Option2Button.SetActive(false); //hide the option2 button
                 break; //end case 1
         }
     }
-
-    //When the player presses the second option button
-    public void Option2()
-    {
-        //Based on what NPC the player is currently talking to  
-        switch (NPCCounter)
-        {
-            case 1:
-                NewText = "Option 2 was clicked."; //change the value of NewText
-                CurrentText = NewText; //set the value of CurrentText to NewText
-                StartCoroutine(DisplayText()); //start the display text coroutine
-                Option1Button.SetActive(false); //hide the option1 button
-                Option2Button.SetActive(false); //hide the option2 button
-                Option3Button.SetActive(false); //hide the option3 button
-                break; //end case 1
-        }
-    }
-
-    //When the player presses the third option button
-    public void Option3()
-    {
-        //Based on what NPC the player is currently talking to  
-        switch (NPCCounter)
-        {
-            case 1:
-                NewText = "Option 3 was clicked."; //change the value of NewText
-                CurrentText = NewText; //set the value of CurrentText to NewText
-                StartCoroutine(DisplayText()); //start the display text coroutine
-                Option1Button.SetActive(false); //hide the option1 button
-                Option2Button.SetActive(false); //hide the option2 button
-                Option3Button.SetActive(false); //hide the option3 button
-                break; //end case 1
-        }
-    }
-
 
 
 }
