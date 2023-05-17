@@ -10,12 +10,15 @@ public class CardFragment : MonoBehaviour
 
     public GameObject Player; //the player, to acess its functions
 
+    public AudioSource audio;
+
     public void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Player") //check if the gameobject that collided with the card fragment is the player
         {
             CardFragmentImage.SetActive(true); //enable the card fragment image in the card inventory
             Player.GetComponent<Player>().CardFragmentCollected(); //call to the players card fragment collected function
+            audio.Play();
             Destroy(gameObject); //remove the card fragment gameobject from the scene
         }
     }
