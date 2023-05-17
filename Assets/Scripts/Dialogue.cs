@@ -18,53 +18,76 @@ public class Dialogue : MonoBehaviour
 
     [Header("ints")]
     public int NPCCounter; //The number coorelates to the NPC the player is currently talking to
-    //int = 1 - First NPC - Capeless
-    //int = 2 - Second NPC - Crownless
+
+    //int = 1 - First NPC - Capeless - In the NPC Hub
+    //int = 2 - Second NPC - Crownless - In the NPC Hub
     //int = 3 - Third NPC - Crayfish
 
     //int = 4 - Intro NPC Tutorial
     //int = 5 - Forest NPC
-    //int 6 - Wheel of Fortune NPC
-    //int 7 - Fog Maze Player Dialogue
-    //int 8
+    //int 6 = Wheel of Fortune NPC
+    //int 7 = Fog Maze Player Dialogue
+    //int 8 = Tower Player Dialogue 
+    //int 9 = NPC Hub Dialogue 
+
+    public int DialogueCounter;
 
     [Header("The Quest Manager")]
     public QuestManager QuestScript; //To access the variables in the questmanager script 
     public GameObject QuestManager; //To access the functions in the questmanager script
 
+    [Header("Card Items")]
     public GameObject Card7; //the seventh card fragment image in the card inventory
     public GameObject Card8; //the eighth card fragment image in the card inventory
 
+    [Header("Player")]
     public GameObject Player; //the player, to access their functions
 
-    public GameObject Crown; //the crown gameobject, which gets enabled when the player completes the crayfishes quest
+    public GameObject Crown;
+
+
+    //bools to control dialogue
+    public bool RodPurchased;
+
 
     public void DialogueTrigger() //triggered by an NPC when a player collides with them and presses E.
     {
-        if(NPCCounter == 1) //capeless NPC 1
+        switch(NPCCounter)
         {
-            NPC1DialogueTrigger(); //call the npc1dialoguetrigger function - I seperated the NPC dialogues into their own functions to make things cleaner and more organised
-        }
+            case 1:
+                NPC1DialogueTrigger(); 
+                break;
 
-        if(NPCCounter == 2) //crownless NPC 2
-        {
-            NPC2DialogueTrigger();
-        }
+            case 2:
+                NPC2DialogueTrigger();
+                break;
 
-        if (NPCCounter == 3) //crayfish NPC 3
-        {
-            CrayfishNPCTrigger();
-        }
+            case 3:
+                CrayfishNPCTrigger();
+                break;
 
-        if(NPCCounter == 4)
-        {
-            TutorialNPCTrigger();
-        }
+            case 4:
+                TutorialNPCTrigger();
+                break;
 
-        if(NPCCounter == 5)
-        {
+            case 5:
+                ForestNPCTrigger();
+                break;
 
+            case 6:
+                WheelofFortuneNPCTrigger();
+                break;
+
+            case 7:
+                FogMazePlayerDialogueTrigger();
+                break;
+            case 8:
+                TowerPlayerDialogueTrigger();
+                break;
         }
+        
+
+
         CurrentText = NewText; //The NPC changes the text to be displayed in their script - through NewText. 
         StartCoroutine(DisplayText()); //start the coroutine to display text
     }
@@ -135,6 +158,7 @@ public class Dialogue : MonoBehaviour
 
     }
 
+    //Intro NPC Tutorial
     public void TutorialNPCTrigger()
     {
         NPCName.text = "Player"; //set the npc name text object to display the name of the NPC
@@ -142,18 +166,27 @@ public class Dialogue : MonoBehaviour
 
     }
 
+    //Forest NPC
     public void ForestNPCTrigger()
     {
         NPCName.text = "Forest NPC - Name Undecided"; //set the npc name text object to display the name of the NPC
 
     }
 
+    //Wheel of Fortune NPC
     public void WheelofFortuneNPCTrigger()
     {
 
     }
 
-    public void FogMazePlayerDialogue()
+    //Fog Maze Player Dialogue
+    public void FogMazePlayerDialogueTrigger()
+    {
+        NPCName.text = "Player";
+    }
+
+    //Tower Player Dialogue
+    public void TowerPlayerDialogueTrigger()
     {
         NPCName.text = "Player";
     }
@@ -202,6 +235,11 @@ public class Dialogue : MonoBehaviour
                 Option1Button.SetActive(false); //hide the option1 button
                 break; //end case 1
         }
+    }
+
+    public void BuyFishingRod()
+    {
+        RodPurchased = true;
     }
 
 

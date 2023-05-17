@@ -21,10 +21,16 @@ public class EnemyMovement : MonoBehaviour
     public bool timeractive; //when true, the timer begins
     public float timer; //float 
 
+    public AudioSource audio;
 
     void Awake()
     {
         PlayerInSight = false; //setting PlayerInSight to false as it kept getting enabled at the start of playing 
+    }
+
+    private void Start()
+    {
+        audio = GetComponent<AudioSource>();
     }
 
     void FixedUpdate()
@@ -110,6 +116,10 @@ public class EnemyMovement : MonoBehaviour
         {
             timeractive = true; //enable the timer - this stops the player from being instantly killed
             player.GetComponent<Player>().HealthDecrease(); //Call to the HealthDecrease function in the Player script
+            if (!audio.isPlaying)
+            {
+                audio.Play();
+            }
         }
 
         if(collision.gameObject.tag == "Trap") //if the object the enemy has collided with is tagged with Trap

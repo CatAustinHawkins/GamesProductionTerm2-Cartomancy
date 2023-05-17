@@ -44,6 +44,13 @@ public class Player : MonoBehaviour
     public GameObject FragmentCollectedTEXT; //text to tell the player they collected a card fragment
     public GameObject bridge; //bridge to let the player walk to the tower
 
+    //CARD PUZZLE VARIABLES
+    public GameObject Puzzle;
+    public GameObject PuzzleButton;
+    public int PuzzlesPutTogether;
+
+    public AudioSource audio1;
+
     //Camera Following Player's Mouse code from https://gist.github.com/KarlRamstedt/407d50725c7b6abeaf43aee802fdd88e
     public float Sensitivity
     {
@@ -71,7 +78,9 @@ public class Player : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody>(); //rb equals the rigidbody on the player
-        jump = new Vector3(0.0f, 2.0f, 0.0f);
+        jump = new Vector3(0.0f, 0.6f, 0.0f);
+
+        audio1 = GetComponent<AudioSource>();
     }
 
     void OnCollisionStay()
@@ -102,21 +111,39 @@ public class Player : MonoBehaviour
         if (Input.GetKey(KeyCode.W)) //when W pressed
         {
             gameObject.transform.Translate(0, 0, 0.1f); //move the player in the z axis by 0.05f
+
+            if(!audio1.isPlaying)
+            {
+                audio1.Play();
+            }
         }
 
         if (Input.GetKey(KeyCode.A)) //when A pressed
         {
             gameObject.transform.Translate(-0.1f, 0, 0); //move the player in the x axis by -0.05f
+
+            if (!audio1.isPlaying)
+            {
+                audio1.Play();
+            }
         }
 
         if (Input.GetKey(KeyCode.S)) //when S pressed
         {
             gameObject.transform.Translate(0, 0, -0.1f); //move the player in the z axis by -0.05f
+            if (!audio1.isPlaying)
+            {
+                audio1.Play();
+            }
         }
 
         if (Input.GetKey(KeyCode.D)) //when D pressed
         {
             gameObject.transform.Translate(0.1f, 0, 0); //move the player in the x axis by 0.05f
+            if (!audio1.isPlaying)
+            {
+                audio1.Play();
+            }
         }
 
         if (Input.GetKey(KeyCode.T)) //when T pressed
@@ -124,7 +151,12 @@ public class Player : MonoBehaviour
             Instantiate(Trap, gameObject.transform.position, gameObject.transform.rotation); //place a trap, in the same position and rotation and the player
         }
 
-        if(timeractive)
+        if (Input.GetKey(KeyCode.Escape)) //when T pressed
+        {
+            SceneManager.LoadScene("MainMenu");
+        }
+
+        if (timeractive)
         {
             timer = timer + 1 * Time.deltaTime;
         }
@@ -138,10 +170,9 @@ public class Player : MonoBehaviour
 
         if(CardFragmentsCollected == 8) //when the player has collected all card fragments
         {
-            bridge.SetActive(true); //enable the bridge - to let them go to the tower
+            Puzzle.SetActive(true);
         }
     }
-
 
     public void OnCoinCollection() //called by the Coin script, and Fishing script
     {
@@ -205,5 +236,21 @@ public class Player : MonoBehaviour
         CardFragmentsCollected++; //add to the amount of card fragment collected (to track whether the player has gotten them all)
         FragmentCollectedTEXT.SetActive(true); //display text to tell the player they collected a card fragment
         timeractive = true; //enable the timer
+    }
+
+    public void CardsPutTogether()
+    {
+        PuzzlesPutTogether++;
+
+        if(PuzzlesPutTogether == 8)
+        {
+            PuzzleButton.SetActive(true);
+        }
+    }
+
+    public void ExitPuzzleMenu()
+    {
+        Puzzle.SetActive(false);
+        bridge.SetActive(true);
     }
 }

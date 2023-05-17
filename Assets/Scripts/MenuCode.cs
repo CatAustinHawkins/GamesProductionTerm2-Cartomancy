@@ -32,7 +32,7 @@ public class MenuCode : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene("CatTestingScene2");
+        SceneManager.LoadScene("Level");
     }
 
     public void EndGame()

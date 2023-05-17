@@ -3,6 +3,7 @@ using UnityEngine.EventSystems;
 
 //script used for the 'put the card fragments together' mechanic
 //script from https://www.youtube.com/watch?v=sXTAzcxNqv0&ab_channel=SunnyValleyStudio 
+//with adjustments
 public class Drag : MonoBehaviour
 {
     public Canvas canvas;
@@ -11,29 +12,28 @@ public class Drag : MonoBehaviour
 
     public string Position;
 
-    public Vector3 GoalPosition;
+    public GameObject PuzzleInPostion;
+
+    public GameObject Player;
 
     public void DragHandler(BaseEventData data)
     {
-        if(AbleToDrag)
-        {
-            PointerEventData pointerData = (PointerEventData)data;
+        PointerEventData pointerData = (PointerEventData)data;
 
-            Vector2 position;
+        Vector2 position;
 
-            RectTransformUtility.ScreenPointToLocalPointInRectangle((RectTransform)canvas.transform, pointerData.position, canvas.worldCamera, out position);
+        RectTransformUtility.ScreenPointToLocalPointInRectangle((RectTransform)canvas.transform, pointerData.position, canvas.worldCamera, out position);
 
-            transform.position = canvas.transform.TransformPoint(position);
-
-        }
+        transform.position = canvas.transform.TransformPoint(position);
     }
 
     public void OnTriggerEnter2D(Collider2D other)
     { 
         if(other.name == Position)
         {
-            AbleToDrag = false;
-
+            PuzzleInPostion.SetActive(true);
+            gameObject.SetActive(false);
+            Player.GetComponent<Player>().CardsPutTogether();
         }
     }
 }

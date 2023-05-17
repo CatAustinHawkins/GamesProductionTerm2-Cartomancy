@@ -37,7 +37,12 @@ public class Inventory : MonoBehaviour
     public int CrayfishCount;
     public int WaterCount;
 
+    public AudioSource audio;
 
+    private void Start()
+    {
+        audio = GetComponent<AudioSource>();
+    }
 
     private void FixedUpdate()
     {
@@ -63,15 +68,17 @@ public class Inventory : MonoBehaviour
                 CardInventoryUI.SetActive(false); //close the CardInventory
                 cardinventoryopen = false; //set the cardinventoryopen bool to false
                 timeractive = true; //start the timer
+                audio.Play();
             }
 
-            if(cardinventoryopen == false && timeractive == false) //if the cardinventory is closed, and the timer isnt running
+            if (cardinventoryopen == false && timeractive == false) //if the cardinventory is closed, and the timer isnt running
             {
                 ItemInventoryUI.SetActive(false); //close the ItemInventory, to prevent an accidental overlap
                 iteminventoryopen = false; //set the iteminventoryopen bool to false
                 CardInventoryUI.SetActive(true); //open the CardInventory
                 cardinventoryopen = true; //set the cardinventory open bool to true
                 timeractive = true; //start the timer
+                audio.Play();
             }
         }
 
@@ -82,6 +89,7 @@ public class Inventory : MonoBehaviour
                 ItemInventoryUI.SetActive(false);  //close the ItemInventory
                 iteminventoryopen = false; //set the iteminventoryopen bool to false
                 timeractive = true; //start the timer
+                audio.Play();
             }
 
             if (iteminventoryopen == false && timeractive == false)
@@ -91,6 +99,7 @@ public class Inventory : MonoBehaviour
                 ItemInventoryUI.SetActive(true);  //open the ItemInventory
                 iteminventoryopen = true; //set the iteminventoryopen bool to true
                 timeractive = true; //start the timer
+                audio.Play();
             }
         }
     }

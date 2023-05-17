@@ -330,18 +330,35 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: About Menu
+  m_text: 'Created by "Another Tarot Team"
+
+
+    2D Artists:
+
+    Rasmus Ross, Giselle
+    Ivanov-Karpinen and Jacob Tumaniec
+
+
+    3D Artists:
+
+    Jack Cooper, Eleanor
+    Li, Dain Lee and Mykolas Matuzevicius
+
+
+    Programmer:
+
+    Cat Austin-Hawkins'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e30fe15d6f23aff4fa7e31df39108a0a, type: 2}
-  m_sharedMaterial: {fileID: 4035300132230051486, guid: e30fe15d6f23aff4fa7e31df39108a0a,
+  m_fontAsset: {fileID: 11400000, guid: 2bd87cd3d5e73e444a62a5914e0479b6, type: 2}
+  m_sharedMaterial: {fileID: -1585785671846308839, guid: 2bd87cd3d5e73e444a62a5914e0479b6,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -358,8 +375,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 108
-  m_fontSizeBase: 108
+  m_fontSize: 60
+  m_fontSizeBase: 60
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -370,7 +387,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: -15
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -394,7 +411,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 140.97986, y: 240.44891, z: 142.29974, w: 259.9106}
+  m_margin: {x: 140.97986, y: 206.11765, z: 142.29974, w: 227.43256}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -527,7 +544,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 4.1973877}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 50}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1268204472
@@ -552,16 +569,16 @@ MonoBehaviour:
       m_Calls: []
   m_text: About Menu
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e30fe15d6f23aff4fa7e31df39108a0a, type: 2}
-  m_sharedMaterial: {fileID: 4035300132230051486, guid: e30fe15d6f23aff4fa7e31df39108a0a,
+  m_fontAsset: {fileID: 11400000, guid: 2bd87cd3d5e73e444a62a5914e0479b6, type: 2}
+  m_sharedMaterial: {fileID: -1585785671846308839, guid: 2bd87cd3d5e73e444a62a5914e0479b6,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -578,8 +595,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 150
-  m_fontSizeBase: 150
+  m_fontSize: 100
+  m_fontSizeBase: 100
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -614,7 +631,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 3.3911743, y: 0, z: 2.1446533, w: -177.5127}
+  m_margin: {x: 134.14948, y: 0, z: 144.14673, w: -85.716064}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -656,7 +673,7 @@ RectTransform:
   m_GameObject: {fileID: 1350654372}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4.5329804, y: 4.5329804, z: 4.5329804}
+  m_LocalScale: {x: 3.6114256, y: 3.6114256, z: 3.6114256}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2119930242}
@@ -665,7 +682,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -390}
+  m_AnchoredPosition: {x: 0, y: -470}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1350654374
@@ -689,7 +706,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 0.39215687}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -813,14 +830,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.6226415, g: 0.6226415, b: 0.6226415, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 757cd15d732754e429db54bc18e8f2fb, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1082,8 +1099,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e30fe15d6f23aff4fa7e31df39108a0a, type: 2}
-  m_sharedMaterial: {fileID: 4035300132230051486, guid: e30fe15d6f23aff4fa7e31df39108a0a,
+  m_fontAsset: {fileID: 11400000, guid: 55d04475c1383e646b440e4e496bfa4c, type: 2}
+  m_sharedMaterial: {fileID: -1585785671846308839, guid: 55d04475c1383e646b440e4e496bfa4c,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}

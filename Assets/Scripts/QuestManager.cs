@@ -35,8 +35,6 @@ public class QuestManager : MonoBehaviour
     public bool CapeQuestBegan; //if the cape quest is in progress
     public bool CrownQuestBegan; //if the crown quest is in progress
 
-    public GameObject Crown; //the crown gameobject
-
     private void FixedUpdate()
     {
         //start the timer
@@ -123,9 +121,6 @@ public class QuestManager : MonoBehaviour
     public void CrayfishQuestComplete()
     {
         CrayfishQuestText.text = "Quest 1 - Complete";
-
-        Crown.SetActive(true); //so the player can collect it
-
     }
 
     public void CapeQuestComplete()
