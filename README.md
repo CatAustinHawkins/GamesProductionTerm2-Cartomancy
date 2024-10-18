@@ -45,15 +45,16 @@ Cat Austin-Hawkins (Myself) - Programming
 
 _________
 
-
-
-Created for Year 2 of my Bachelors Degree
-Brief was to include Card Game elements. We chose to use Tarot cards as our chosen card game element.
+Created for Year 2 of my Bachelor's Degree
+The brief was to include Card Game elements. We chose to use tarot cards as our card game element.
 _____
 Development from February 2023 - May 2023
+
+Built for Windows 
+
+Using Unity and C#
  _________
 Itch.io Page Link
 
 https://cat-austin-hawkins.itch.io/cartomancy
 
-Featuring Windows Build.
