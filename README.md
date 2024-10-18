@@ -1,4 +1,6 @@
 
+# Cartomancy
+
 Cartomancy revolves around a squire who comes across a haunted lantern and is now transported into a realm inspired by the Major Arcana. Discover puzzles and find your way out of the strange kingdom! 
 
 _________
