@@ -49,7 +49,8 @@ _________
 
 Created for Year 2 of my Bachelors Degree
 Brief was to include Card Game elements. We chose to use Tarot cards as our chosen card game element.
-February 2023 - May 2023
+_____
+Development from February 2023 - May 2023
  _________
 Itch.io Page Link
 
