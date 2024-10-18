@@ -46,6 +46,7 @@ Cat Austin-Hawkins (Myself) - Programming
 _________
 
 Created for Year 2 of my Bachelor's Degree
+
 The brief was to include Card Game elements. We chose to use tarot cards as our card game element.
 _____
 Development from February 2023 - May 2023
